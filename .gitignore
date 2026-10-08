@@ -4,13 +4,111 @@ ex_ctx/*
 node_modules/
 dist/
 
-# Python bytecode and caches
+
+# 1. Python 编译缓存
 __pycache__/
 *.py[cod]
 *$py.class
+
+# 2. Python 虚拟环境
+.venv/
+venv/
+env/
+ENV/
+virtualenv/
+.python-version
+
+# 3. 环境变量和敏感信息
+.env
+.env.*
+!.env.example
+!.env.template
+*.pem
+*.key
+secrets.json
+secrets.yaml
+
+# 4. 构建及打包产物
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+pip-wheel-metadata/
+wheels/
+
+# 5. 测试及覆盖率
 .pytest_cache/
-.mypy_cache/
-.ruff_cache/
 .coverage
-coverage.xml
+.coverage.*
 htmlcov/
+coverage.xml
+test-results/
+.tox/
+.nox/
+.hypothesis/
+
+# 6. 代码质量与类型检查缓存
+.mypy_cache/
+.pyright/
+.ruff_cache/
+.pytype/
+.dmypy.json
+.pyre/
+
+# 7. Jupyter Notebook
+.ipynb_checkpoints/
+.profile_default/
+.ipython/
+
+# 8. IDE 配置
+.idea/
+.vscode/
+*.iml
+*.code-workspace
+
+# 9. 操作系统文件
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# 10. 日志及临时文件
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*~
+*.pid
+
+# 11. 本地数据库
+*.sqlite
+*.sqlite3
+*.db
+
+# 12. 机器学习与数据产物（可选）
+# data/
+# datasets/
+# outputs/
+# checkpoints/
+# models/
+# *.pkl
+# *.joblib
+# *.pt
+# *.pth
+# *.onnx
+
+# 13. Python 环境管理工具
+.pdm-python
+.pdm-build/
+__pypackages__/
+.uv_cache/
+
+# 14. AI 编程工具（按需开启）
+# .cursor/
+# .claude/
+# .codex/
+  
