@@ -1,5 +1,6 @@
 from hashlib import sha256
 from jinja2 import Environment, StrictUndefined, select_autoescape
+from typeRender import PromptContext
 
 
 env = Environment(
