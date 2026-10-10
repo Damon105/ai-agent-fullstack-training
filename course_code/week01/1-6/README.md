@@ -11,6 +11,8 @@ uvicorn gateway:app --reload --port 8000
 
 主模型和备用模型的实际模型名、Base URL 可通过 `PRIMARY_PROVIDER_MODEL`、`PRIMARY_BASE_URL`、`BACKUP_PROVIDER_MODEL`、`BACKUP_BASE_URL` 配置。密钥只由 Gateway 进程读取；调用 Gateway 的 Agent 不需要保存供应商密钥。
 
+启动后在浏览器打开 `http://127.0.0.1:8000/`，会跳转到接口文档 `/docs`。浏览器自动请求的 `/favicon.ico` 返回空响应。可用 `GET /v1/traces` 检查轨迹接口；刚启动且尚未调用模型时，返回空列表是正常结果。
+
 ## 非流式调用
 
 ```bash

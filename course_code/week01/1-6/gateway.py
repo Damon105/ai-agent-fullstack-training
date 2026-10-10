@@ -11,7 +11,7 @@ from typing import Any, Literal, Protocol
 from uuid import uuid4
 
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import StreamingResponse
+from fastapi.responses import RedirectResponse, Response, StreamingResponse
 from jsonschema import ValidationError as JsonSchemaError
 from jsonschema import validate
 from openai import APIConnectionError, APITimeoutError, AsyncOpenAI, RateLimitError
@@ -406,6 +406,16 @@ async def stream_with_fallback(request: LLMRequest) -> AsyncIterator[str]:
 
 
 app = FastAPI(title="Agent LLM Gateway", version="0.0.1")
+
+
+@app.get("/", include_in_schema=False)
+async def open_api_docs() -> RedirectResponse:
+    return RedirectResponse(url="/docs")
+
+
+@app.get("/favicon.ico", include_in_schema=False)
+async def empty_favicon() -> Response:
+    return Response(status_code=204)
 
 
 @app.post("/v1/llm", response_model=LLMResponse)
